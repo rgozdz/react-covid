@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import { fetchGlobalData, fetchCountryData } from './api';
+import Cards from './components/Cards';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {s
+ 
+  state= {
+    globalData: {},
+    countryData: {}
+  }
+
+  async componentDidMount() {
+    const globalData = await fetchGlobalData();
+    this.setState({globalData});
+
+    const countryName = 'poland'
+    const countryData = await fetchCountryData(countryName);
+    this.setState({countryData});
+  }
+
+  render() {
+    return(
+      <div>
+        <h1 style={{textAlign: 'center'}}>World</h1>
+        <Cards data={this.state.globalData}></Cards>
+
+        <h1 style={{textAlign: 'center'}}>Poland</h1>
+        <Cards data={this.state.countryData}></Cards>
+      </div>
+    )
+  }
+
 }
 
 export default App;
