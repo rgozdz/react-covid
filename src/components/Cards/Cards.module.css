@@ -1,0 +1,51 @@
+:root {
+  --border-bottom: 12px;
+}
+
+.amount {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  flex-wrap: wrap;
+}
+
+.card {
+  min-width: 20vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 5px 10px 8px #888888;
+}
+
+/* @keyframes zoom-in {
+  from {
+    font-size: 1em;
+  }
+  to {
+    font-size: 1.2em;
+  }
+}
+.card:hover {
+  animation: zoom-in 2s both;
+} */
+
+.confirmed {
+  border-bottom: var(--border-bottom) solid yellow;
+}
+
+.active {
+  border-bottom: var(--border-bottom) solid salmon;
+}
+
+.recovered {
+  border-bottom: var(--border-bottom) solid greenyellow;
+}
+
+.deaths {
+  border-bottom: var(--border-bottom) solid red;
+}
